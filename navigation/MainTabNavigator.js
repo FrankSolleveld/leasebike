@@ -4,8 +4,9 @@ import { createStackNavigator, createBottomTabNavigator } from 'react-navigation
 
 import TabBarIcon from '../components/TabBarIcon';
 import HomeScreen from '../screens/HomeScreen';
-import LinksScreen from '../screens/LinksScreen';
-import SettingsScreen from '../screens/SettingsScreen';
+import BikeScreen from '../screens/BikeScreen';
+import ProfileScreen from '../screens/ProfileScreen';
+import SupportScreen from '../screens/SupportScreen';
 
 const HomeStack = createStackNavigator({
   Home: HomeScreen,
@@ -25,11 +26,11 @@ HomeStack.navigationOptions = {
   ),
 };
 
-const LinksStack = createStackNavigator({
-  Links: LinksScreen,
+const BikeStack = createStackNavigator({
+  Bike: BikeScreen,
 });
 
-LinksStack.navigationOptions = {
+BikeStack.navigationOptions = {
   tabBarLabel: 'Bike',
   tabBarIcon: ({ focused }) => (
     <TabBarIcon
@@ -39,12 +40,26 @@ LinksStack.navigationOptions = {
   ),
 };
 
-const SettingsStack = createStackNavigator({
-  Settings: SettingsScreen,
+const ProfileStack = createStackNavigator({
+  Profile: ProfileScreen,
 });
 
-SettingsStack.navigationOptions = {
+ProfileStack.navigationOptions = {
   tabBarLabel: 'Profile',
+  tabBarIcon: ({ focused }) => (
+    <TabBarIcon
+      focused={focused}
+      name={Platform.OS === 'ios' ? 'ios-link' : 'md-link'}
+    />
+  ),
+};
+
+const SupportStack = createStackNavigator({
+  Support: SupportScreen,
+});
+
+SupportStack.navigationOptions = {
+  tabBarLabel: 'Support',
   tabBarIcon: ({ focused }) => (
     <TabBarIcon
       focused={focused}
@@ -55,6 +70,7 @@ SettingsStack.navigationOptions = {
 
 export default createBottomTabNavigator({
   HomeStack,
-  LinksStack,
-  SettingsStack,
+  BikeStack,
+  ProfileStack,
+  SupportStack,
 });
