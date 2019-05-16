@@ -29,6 +29,8 @@ export default class HomeScreen extends React.Component {
 
         <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
           {/* ScrollView: The view that is scrollable  */}
+
+          <Text style={styles.loginTitle}>Log in</Text>
           
         </ScrollView>
       </View>
